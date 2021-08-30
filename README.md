@@ -7,8 +7,18 @@ This is a very simple, bare-bones NodeJS project created for you to use with Doc
 * Run server: `node server.js`
 
 ## Container Setup
-* Build image: `docker build .`
-* Run container with image: `docker run {image_id}` where `image_id` can be retrieved by running `docker images` and found under the column `IMAGE ID`
+~~* Build image: `docker build .`~~
+~~* Run container with image: `docker run {image_id}` where `image_id` can be retrieved by running `docker images` and found under the column `IMAGE ID`~~
+
+Run the following to build the image and push it to dockerhub.com
+```
+docker build -t simple-node .
+docker tag simple-node aldolinux/simple-node
+docker login --username=aldolinux
+docker push aldolinux/simple-node
+```
+
+
 
 ## Container teardown
 * Remove container: `docker kill {container_id}` where `container_id` can be retrieved by running `docker ps` and found under the column `CONTAINER ID`
