@@ -18,7 +18,21 @@ docker login --username=aldolinux
 docker push aldolinux/simple-node
 ```
 
-
-
 ## Container teardown
 * Remove container: `docker kill {container_id}` where `container_id` can be retrieved by running `docker ps` and found under the column `CONTAINER ID`
+
+
+# Kubernetes Cluster in AWS
+
+In order to setup the EKS cluster in AWS it is best to use the [eksctl](https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html) command line utility.
+
+1. Create the EKS Cluster:
+```
+eksctl create cluster \
+--name simple-node-aldo \
+--region us-east-2 \
+--nodegroup-name nodegroup-simple-node-aldo \
+--node-type t2.micro \
+--nodes 2
+
+```
